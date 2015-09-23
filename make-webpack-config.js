@@ -66,6 +66,13 @@ module.exports = function(options) {
     })
   ];
 
+  if (options.debug) {
+    plugins.push(new webpack.DefinePlugin({
+      __DEVTOOLS__ : true,
+      __DEVELOPMENT__: true
+    }));
+  }
+
   if (options.commonsChunk) {
     //TODO: investigate necesit of this, do i need commons entry?
     plugins.push(new webpack.optimize.CommonsChunkPlugin(

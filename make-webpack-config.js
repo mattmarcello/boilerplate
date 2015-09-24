@@ -8,7 +8,7 @@ var loadersByExtension = require("./config/loadersByExtension");
 
 module.exports = function(options) {
   var entry = {
-    main: "./config/mainRenderer"
+    main: "./app/client"
   };
   var loaders = {
     "jsx": options.hotComponents ? ["react-hot-loader", "babel-loader?stage=0"] : "babel-loader?stage=0",
@@ -69,7 +69,7 @@ module.exports = function(options) {
   if (options.debug) {
     plugins.push(new webpack.DefinePlugin({
       __DEVTOOLS__ : true,
-      __DEVELOPMENT__: true
+      __DEVELOPMENT__: true,
     }));
   }
 
